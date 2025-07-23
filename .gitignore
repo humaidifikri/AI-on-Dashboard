@@ -1,0 +1,49 @@
+# === PYTHON ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+
+# === JUPYTER ===
+.ipynb_checkpoints/
+
+# === VSCODE ===
+.vscode/
+*.code-workspace
+
+# === STREAMLIT ===
+.streamlit/secrets.toml
+.streamlit
+
+# === DATA ===
+data/users.csv
+data/users_data/*.csv
+
+# === MODELS ===
+models/opt_xgb_model.pkl
+models/opt_xgb_model_2.pkl
+models/opt_xgb_model_3.pkl
+
+# === LOG & CACHE ===
+*.log
+.cache/
+__pycache__/
+
+# === ENVIRONMENTS ===
+.env
+.venv/
+env/
+ENV/
+env.bak/
+venv/
+
+# === OS / SYSTEM ===
+.DS_Store
+Thumbs.db
