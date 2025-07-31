@@ -111,8 +111,8 @@ else:
     # Main content area
     st.markdown(f"""
     <div class="main-header">
-        <h1 style="color: white;">Welcome back, {st.session_state.username}! 🎉</h1>
-        <p>Ready to continue your health journey?</p>
+        <h1 style="color: white;">Selamat Datang, {st.session_state.username}! 🎉</h1>
+        <p>Sudah siap melanjutkan perjalanan body-goals mu?</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -121,14 +121,14 @@ else:
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        if st.button("📊 View Dashboard", use_container_width=True):
+        if st.button("📊 Dashboard", use_container_width=True):
             st.switch_page("pages/Dashboard.py")
     
     with col2:
-        if st.button("🔮 Make Predictions", use_container_width=True):
+        if st.button("🔮 Buat Prediksi", use_container_width=True):
             st.switch_page("pages/Prediksi.py")
     
     with col3:
-        if st.button("🍎 AI", use_container_width=True):
+        if st.button("🍎 Analisa dengan AI", use_container_width=True):
             st.switch_page("pages/Rekomendasi.py")
-    st.info("💡 **Tip**: Use the sidebar navigation to access all features of NutriVerse!")
+    st.info("💡 **Tip**: Gunakan navigasi sidebar untuk mengakses fitur-fitur di NutriVerse!")

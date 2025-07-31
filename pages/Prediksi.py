@@ -114,12 +114,12 @@ sns.set_palette("husl")
 
 with st.expander("Pilih Makanan yang cocok untuk Mu!"):
     # Title and description
-    st.title("🍏 Nutrition Dashboard")
-    st.markdown("Explore nutritional information for various food items")
+    st.title("🍏 Penuhi Gizi Mu!")
+    st.markdown("Jelajahi informasi nutrisi untuk berbagai makanan")
     st.markdown("---")
 
     # Sidebar filters
-    st.markdown(f"Filter Options")
+    st.markdown(f"Opsi Filter")
 
     col1, col2, col3 = st.columns([1,1,2])
     # Nutrient selection
@@ -161,7 +161,7 @@ with st.expander("Pilih Makanan yang cocok untuk Mu!"):
         ]
 
     # Main dashboard
-    tab1, tab2, tab3 = st.tabs(["Overview", "Nutrient Analysis", "Food Explorer"])
+    tab1, tab2 = st.tabs(["Nutrient Analysis", "Food Explorer"])
 
     with tab1:
         st.header("Nutrition Overview")
