@@ -91,7 +91,7 @@ with st.form("prediction_form"):
         user_data['tanggal'] = pd.to_datetime(user_data['tanggal'])
         last_7_days = user_data[user_data['tanggal'] >= user_data['tanggal'].max() - pd.Timedelta(days=6)]
         
-        result = st.session_state.prediction_result
+        result = predict(data_pred).round()
         fig, ax = plt.subplots(figsize=(6,3))
 
         sns.lineplot(data=last_7_days, x='tanggal', y='berat_badan', label='Aktual', marker='o', ax=ax)
