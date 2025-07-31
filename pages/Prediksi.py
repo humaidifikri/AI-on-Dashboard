@@ -84,10 +84,10 @@ with st.form("prediction_form"):
                                 'kualitas_tidur':kualitas_tidur}])
 
     if submitted:
-        st.session_state.prediction_result = predict(data_pred).round()
+    #     st.session_state.prediction_result = predict(data_pred).round()
 
-    # Tampilkan hasil prediksi
-    if st.session_state.prediction_result is not None:
+    # # Tampilkan hasil prediksi
+    # if st.session_state.prediction_result is not None:
         user_data['tanggal'] = pd.to_datetime(user_data['tanggal'])
         last_7_days = user_data[user_data['tanggal'] >= user_data['tanggal'].max() - pd.Timedelta(days=6)]
         
