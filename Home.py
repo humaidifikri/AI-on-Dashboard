@@ -49,8 +49,8 @@ if not st.session_state.logged_in:
     st.markdown("""
     <div class="main-header">
         <h1>🌐 NutriVerse</h1>
-        <h3>Your AI Guide to Smarter Eating</h3>
-        <p>Transform your health journey with personalized nutrition insights</p>
+        <h3>Pemandu AI Mu Untuk Makan Lebih Cerdas</h3>
+        <p>Ubah perjalanan kesehatan Anda dengan wawasan nutrisi yang dipersonalisasi</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -59,18 +59,18 @@ if not st.session_state.logged_in:
     with col1:
         st.markdown("""
         <div class="feature-card">
-            <h4>🔍 Smart Food Analysis</h4>
-            <p>Explore nutrient-rich foods with AI-powered recommendations</p>
+            <h4>🔍 Analisis Makanan Cerdas</h4>
+            <p>Jelajahi makanan kaya nutrisi dengan rekomendasi berbasis AI</p>
         </div>
         
         <div class="feature-card">
-            <h4>📊 Visual Health Tracking</h4>
-            <p>Monitor your progress with beautiful, interactive dashboards</p>
+            <h4>📊 Pelacakan Kesehatan Visual</h4>
+            <p>Pantau kemajuan Anda dengan dashboard interaktif yang menarik</p>
         </div>
         
         <div class="feature-card">
-            <h4>🤖 Personalized Insights</h4>
-            <p>Get tailored nutrition advice based on your health data</p>
+            <h4>🤖 Insight yang Dipersonalisasi</h4>
+            <p>Dapatkan saran nutrisi yang disesuaikan berdasarkan data kesehatan Anda</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -93,7 +93,7 @@ if not st.session_state.logged_in:
             """, unsafe_allow_html=True)
     
     with col2:
-        tab1, tab2 = st.tabs(["✨ Sign Up", "🔑 Sign In"])
+        tab1, tab2 = st.tabs(["✨ Daftar", "🔑 Masuk"])
         
         with tab1:
             register_page()

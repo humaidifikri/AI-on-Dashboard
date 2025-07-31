@@ -20,19 +20,19 @@ def hash_password(password):
 def validate_username(username):
     """Validate username format"""
     if not username:
-        return False, "Username cannot be empty"
+        return False, "Username tidak boleh kosong"
     if len(username) < 3:
-        return False, "Username must be at least 3 characters long"
+        return False, "Username minimal 3 karakter panjangnya"
     if not re.match("^[a-zA-Z0-9_]+$", username):
-        return False, "Username can only contain letters, numbers, and underscores"
+        return False, "Username hanya dapat berisi huruf, angka, dan garis bawah"
     return True, "Valid username"
 
 def validate_password(password):
     """Validate password strength"""
     if not password:
-        return False, "Password cannot be empty"
+        return False, "Password tidak kosong"
     if len(password) < 6:
-        return False, "Password must be at least 6 characters long"
+        return False, "Password minimal 6 karakter panjangnya"
     return True, "Valid password"
 
 def init_user_db():
@@ -57,14 +57,14 @@ def register_user(username, password, confirm_password):
             return False, password_msg
         
         if password != confirm_password:
-            return False, "Passwords do not match"
+            return False, "Passwords tidak cocok"
         
         # Initialize database
         users = init_user_db()
         
         # Check if username already exists
         if username.lower() in users['username'].str.lower().values:
-            return False, "Username already exists"
+            return False, "Username sudah ada"
         
         # Hash password and create new user
         password_hash = hash_password(password)
@@ -88,16 +88,16 @@ def register_user(username, password, confirm_password):
         ]
         pd.DataFrame(columns=user_columns).to_csv(user_data_path, index=False)
         
-        return True, "Registration successful"
+        return True, "Pendaftaran Berhasil"
         
     except Exception as e:
-        return False, f"Registration failed: {str(e)}"
+        return False, f"Pendaftaran Gagal: {str(e)}"
 
 def authenticate_user(username, password):
     """Authenticate user with hashed password"""
     try:
         if not username or not password:
-            return False, "Username and password are required"
+            return False, "Perlu Username dan password"
         
         users = init_user_db()
         
@@ -105,23 +105,23 @@ def authenticate_user(username, password):
         user_row = users[users['username'].str.lower() == username.lower()]
         
         if user_row.empty:
-            return False, "Invalid username or password"
+            return False, "username atau password salah"
         
         # Verify password
         stored_hash = user_row['password_hash'].iloc[0]
         password_hash = hash_password(password)
         
         if stored_hash != password_hash:
-            return False, "Invalid username or password"
+            return False, "username atau password salah"
         
         # Update last login
         users.loc[users['username'].str.lower() == username.lower(), 'last_login'] = datetime.now().isoformat()
         users.to_csv(USER_DB, index=False)
         
-        return True, "Login successful"
+        return True, "Berhasil Masuk"
         
     except Exception as e:
-        return False, f"Authentication failed: {str(e)}"
+        return False, f"Autentikasi Gagal: {str(e)}"
 
 def logout():
     """Clear user session"""
