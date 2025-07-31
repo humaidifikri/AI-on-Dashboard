@@ -84,14 +84,14 @@ with st.form("prediction_form"):
                                 'kualitas_tidur':kualitas_tidur}])
 
     if submitted:
-    #     st.session_state.prediction_result = predict(data_pred).round()
+        st.session_state.prediction_result = predict(data_pred).round()
 
-    # # Tampilkan hasil prediksi
-    # if st.session_state.prediction_result is not None:
+    # Tampilkan hasil prediksi
+    if st.session_state.prediction_result is not None:
         user_data['tanggal'] = pd.to_datetime(user_data['tanggal'])
         last_7_days = user_data[user_data['tanggal'] >= user_data['tanggal'].max() - pd.Timedelta(days=6)]
         
-        result = predict(data_pred).round()
+        result = st.session_state.prediction_result
         fig, ax = plt.subplots(figsize=(6,3))
 
         sns.lineplot(data=last_7_days, x='tanggal', y='berat_badan', label='Aktual', marker='o', ax=ax)
